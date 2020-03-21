@@ -1,0 +1,282 @@
+﻿@model List<productModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <style type="text/css">
+
+
+
+
+
+
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: sans-serif;
+        }
+
+        a {
+            margin: 0px;
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+        }
+
+            a:focus {
+                outline: none !important;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0px;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        ul, li {
+            margin: 0px;
+            list-style-type: none;
+        }
+
+
+        input {
+            display: block;
+            outline: none;
+            border: none !important;
+        }
+
+        textarea {
+            display: block;
+            outline: none;
+        }
+
+            textarea:focus, input:focus {
+                border-color: transparent !important;
+            }
+
+        button {
+            outline: none !important;
+            border: none;
+            background: transparent;
+        }
+
+            button:hover {
+                cursor: pointer;
+            }
+
+        iframe {
+            border: none !important;
+        }
+
+
+
+        .limiter {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .container-table100 {
+            width: 100%;
+            min-height: 100vh;
+            background: #d1d1d1;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 33px 30px;
+        }
+
+        .wrap-table100 {
+            width: 1300px;
+        }
+
+        table {
+            width: 100%;
+            background-color: #fff;
+        }
+
+        th, td {
+            font-weight: unset;
+            padding-right: 10px;
+        }
+
+        .column100 {
+            width: 130px;
+            padding-left: 25px;
+        }
+
+            .column100.column1 {
+                width: 265px;
+                padding-left: 42px;
+            }
+
+        .row100.head th {
+            padding-top: 24px;
+            padding-bottom: 20px;
+        }
+
+        .row100 td {
+            padding-top: 18px;
+            padding-bottom: 14px;
+        }
+
+
+        .table100.ver2 td {
+            font-family: Montserrat-Regular;
+            font-size: 14px;
+            color: #808080;
+            line-height: 1.4;
+        }
+
+        .table100.ver2 th {
+            font-family: Montserrat-Medium;
+            font-size: 12px;
+            color: #fff;
+            line-height: 1.4;
+            text-transform: uppercase;
+            background-color: #333333;
+        }
+
+        .table100.ver2 .row100:hover td {
+            background-color: #83d160;
+            color: #fff;
+        }
+
+        .table100.ver2 .hov-column-ver2 {
+            background-color: #83d160;
+            color: #fff;
+        }
+
+        .table100.ver2 .hov-column-head-ver2 {
+            background-color: #484848 !important;
+        }
+
+        .table100.ver2 .row100 td:hover {
+            background-color: #57b846;
+            color: #fff;
+        }
+
+        .table100.ver2 tbody tr:nth-child(even) {
+            background-color: #eaf8e6;
+        }
+
+        .table100.ver2 td {
+            font-family: Montserrat-Regular;
+            font-size: 14px;
+            color: #808080;
+            line-height: 1.4;
+        }
+
+        .table100.ver2 th {
+            font-family: Montserrat-Medium;
+            font-size: 12px;
+            color: #fff;
+            line-height: 1.4;
+            text-transform: uppercase;
+            background-color: #333333;
+        }
+
+        .table100.ver2 .row100:hover td {
+            background-color: #83d160;
+            color: #fff;
+        }
+
+        .table100.ver2 .hov-column-ver2 {
+            background-color: #83d160;
+            color: #fff;
+        }
+
+        .table100.ver2 .hov-column-head-ver2 {
+            background-color: #484848 !important;
+        }
+
+        .table100.ver2 .row100 td:hover {
+            background-color: #57b846;
+            color: #fff;
+        }
+    </style>
+    <!--link rel="stylesheet" type="text/css" href="css/main.css"-->
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                </div>
+
+                <div class="table100 ver2 m-b-110">
+                    <table data-vertable="ver2">
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="column100 column1" data-column="column1">Customer Name/Order Num</th>
+                                <th class="column100 column2" data-column="column2">Order Items</th>
+                            </tr>
+                        </thead>
+                        @{
+                                                <tbody>
+                                                    @for (int i = 0; i < Model.Count; i++)
+                                                    {
+                                                        var rowsize = Model[i].products.Count + 1;
+                                                        string h = rowsize.ToString();
+                                                    <tr class="row100">
+                                                        <td class="column100 column1" data-column="column1">@Model[i].cust.First_name @Model[i].cust.Last_name 's Order @Model[i].productorders.First().OrderNumber <br /> Status: @Model[i].cust.Status </td>
+
+                                                        @if (Model[i].products.Count != 0)
+                                                        {
+                                                        <td class="column100 column2" data-column="column1">@Model[i].products.First().ProductName</td>
+                                                        }
+                                                    </tr>
+                                                        @if (Model[i].products.Count != 0)
+                                                        {
+                                                        @for (int j = 1; j < @Model[i].products.Count(); j++)
+                                                        {
+                                                                <tr class="row100">
+                                                                    <td class="column100 column1" data-column="column1">@Model[i].products[j].ProductName</td>
+                                                                </tr>
+
+                                                        }
+                                                            }
+
+                                                        } 
+
+                                                </tbody>
+                        }
+                    </table>
+                </div>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
