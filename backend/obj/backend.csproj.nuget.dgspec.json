@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shahdsherif/projects/backend/backend/backend.csproj": {}
+    "/Users/shahdsherif/Desktop/small-ecom/small-ecom/backend/backend.csproj": {}
   },
   "projects": {
-    "/Users/shahdsherif/projects/backend/backend/backend.csproj": {
+    "/Users/shahdsherif/Desktop/small-ecom/small-ecom/backend/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shahdsherif/projects/backend/backend/backend.csproj",
+        "projectUniqueName": "/Users/shahdsherif/Desktop/small-ecom/small-ecom/backend/backend.csproj",
         "projectName": "backend",
-        "projectPath": "/Users/shahdsherif/projects/backend/backend/backend.csproj",
+        "projectPath": "/Users/shahdsherif/Desktop/small-ecom/small-ecom/backend/backend.csproj",
         "packagesPath": "/Users/shahdsherif/.nuget/packages/",
-        "outputPath": "/Users/shahdsherif/projects/backend/backend/obj/",
+        "outputPath": "/Users/shahdsherif/Desktop/small-ecom/small-ecom/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/shahdsherif/.config/NuGet/NuGet.Config"
@@ -47,6 +47,10 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[2.2.5, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.6, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -95,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
         }
       }
     }
