@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
- 
 
 namespace backend.Controllers
 {
@@ -20,7 +19,6 @@ namespace backend.Controllers
         protected RoleManager<IdentityRole> mRoleManager;
 
 
-        //Done
         public HomeController(AppDBContext mcontext, UserManager<User> userMAnager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager)
         {
             context = mcontext;
@@ -34,7 +32,7 @@ namespace backend.Controllers
         }
 
 
-        //now home/addAdmin will do this shit. Thanks for that shahd.
+        //now home/addAdmin will do this shit.
         public IActionResult AddAdmin()
         {
             Console.Write("admin try?");
@@ -87,8 +85,7 @@ namespace backend.Controllers
 
         }
 
-
-        //need map sign up
+       
 
         [HttpPost]
         public async Task<IActionResult> test(string first_name, string last_name, string username, string confirm_password, string email, string button)
@@ -157,7 +154,6 @@ namespace backend.Controllers
            
         }
 
-        //2 need map admin home
         [Authorize(Roles ="admin")]
         public IActionResult AdminHome()
         {
@@ -166,7 +162,7 @@ namespace backend.Controllers
             IEnumerable<User> UserList =   context.Users;
             
             Console.Write("users", UserList);
-            List<Models.productModel> pmList = new List<Models.productModel>();
+            List<productModel> pmList = new List<productModel>();
 
             foreach (User u in UserList)
             {
@@ -190,7 +186,7 @@ namespace backend.Controllers
                         Order= new Order(),
                         OrderNumber = -1
                     }) ;
-                    Models.productModel p = new Models.productModel
+                    productModel p = new productModel
                     {
 
                         cust = u,
@@ -221,7 +217,7 @@ namespace backend.Controllers
                     }
                     //string s=products.First().ProductName;
                     var products_string = string.Join(", ", products);
-                    Models.productModel pm = new Models.productModel
+                    productModel pm = new productModel
                     {
                         cust = u,
                         products = products,
@@ -237,7 +233,6 @@ namespace backend.Controllers
             
         }
 
-        //3 need map cust home
         [Authorize(Roles ="customer, admin")]
         public async Task<IActionResult> CustHome() {
 
@@ -265,7 +260,7 @@ namespace backend.Controllers
                 }
                 //string s=products.First().ProductName;
                 var products_string = string.Join(", ", products);
-                Models.productModel pm = new Models.productModel
+                productModel pm = new productModel
                 {
                     cust = u,
                     products = products,
@@ -274,14 +269,12 @@ namespace backend.Controllers
                 };
                 //Here is the order number;
                 // return Content(products_string, "text/html");
-                
+
                 return View(pm);
             }
             else
                 return Content("you don't have any orders", "text/html");
         }
-
-        //done
 
         [HttpPost]
         public async Task<IActionResult> testlogin(string username, string password) {

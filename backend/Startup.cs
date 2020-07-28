@@ -31,7 +31,6 @@ namespace backend
             services.AddDbContext<AppDBContext>(options => options.
             UseMySql("server=localhost;Database=EntitfyDB;persistsecurityinfo=True;Uid=root;Pwd=root;"));
 
-            services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             #region comment
 
@@ -97,7 +96,6 @@ namespace backend
                 options.LoginPath = "/login";
             });
             services.AddControllersWithViews();
-            services.AddCors();
             services.AddMvc();
         }
 
@@ -139,15 +137,10 @@ namespace backend
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseCors(builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-            
 
             app.UseAuthorization();
 
@@ -158,7 +151,7 @@ namespace backend
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-           // CreateRoles(serviceProvider).Wait();
+          //   CreateRoles(serviceProvider).Wait();
         }
     }
 }

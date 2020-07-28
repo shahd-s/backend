@@ -1,10 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+
 namespace backend
 {
+    //Representing a customer and their items and order for displaying in the view
+    public class productModel
+    {
+        public productModel()
+        {
+        }
+        public User cust { get; set; } 
+        public List<Product> products { get; set; }
+        public IEnumerable<ProductOrder> productorders { get; set; }
+    }
 
     //This is basically the database  
     public class AppDBContext : IdentityDbContext<User>

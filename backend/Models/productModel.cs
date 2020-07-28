@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace backend.Models
 {
-    //Representing a customer and their items and order for displaying in the view
     public class productModel
     {
         public productModel()
@@ -13,5 +12,6 @@ namespace backend.Models
         public List<Product> products { get; set; }
         public IEnumerable<ProductOrder> productorders { get; set; }
     }
-
 }
+
+ 
